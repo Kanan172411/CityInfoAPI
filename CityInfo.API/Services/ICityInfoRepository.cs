@@ -5,7 +5,7 @@ namespace CityInfo.API.Services
     public interface ICityInfoRepository
     {
         Task<IEnumerable<City>> GetCitiesAsync();
-        Task<IEnumerable<City>> GetCitiesAsync(string? name, string? sarchQuery);
+        Task<(IEnumerable<City>, PagiNationMetaData)> GetCitiesAsync(string? name, string? sarchQuery, int pageNumber, int pageSize);
         Task<City?> GetCityAsync(int id, bool includePointsOfInterest);
         Task<bool> CityExistAsync(int cityId);
         Task<IEnumerable<PointOfInterest>> GetPointsOfInterestForCityAsync(int cityId); 
